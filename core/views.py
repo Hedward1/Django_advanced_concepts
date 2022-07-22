@@ -15,7 +15,7 @@ class IndexView(FormView):
         context = super(IndexView, self).get_context_data(**kwargs)
         context['services'] = Service.objects.order_by('?').all()
         context['members'] = Member.objects.order_by('?').all()
-        context['features'] = Feature.objects.all()
+        context['features'] = Feature.objects.order_by('?').all()
         return context
 
     def form_valid(self, form, *args, **kwargs):
