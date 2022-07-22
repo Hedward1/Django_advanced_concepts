@@ -45,7 +45,7 @@ class Cargo(Base):
 
 class Member(Base):
     name = models.CharField('Name', max_length=100)
-    cargo = models.ForeignKey('core.Cargo', verbose_name='Cargo', on_delete=models.CASCADE)
+    cargo = models.ForeignKey(Cargo, verbose_name='Cargo', on_delete=models.CASCADE)
     bio = models.TextField('Bio', max_length=200)
     image = StdImageField('Image', upload_to='team',
                           variations={'thumb': {'width': 480, 'height': 480, 'crop': True}})
@@ -76,7 +76,7 @@ class Feature(Base):
 
     class Meta:
         verbose_name = 'Feature'
-        verbose_name = 'Features'
+        verbose_name_plural = 'Features'
 
     def __str__(self):
         return self.feature

@@ -13,7 +13,7 @@ class IndexView(FormView):
 
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
-        context['services'] = Service.object.order_by('?').all()
+        context['services'] = Service.objects.order_by('?').all()
         context['members'] = Member.objects.order_by('?').all()
         context['features'] = Feature.objects.all()
         return context
